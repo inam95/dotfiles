@@ -110,10 +110,31 @@ if [ -d "$FNM_PATH" ]; then
 	export PATH="$FNM_PATH:$PATH"
 	eval "$(fnm env --use-on-cd --shell zsh)"
 fi
+# fnm end
 
 # bun completions
-[ -s "/home/inam/.bun/_bun" ] && source "/home/inam/.bun/_bun"
-
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+# bun completions end
+#
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+# bun end
+#
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+#
+# go
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+# go end
+#
+# uv
+export PATH="$HOME/.local/bin:$PATH"
+# uv end
