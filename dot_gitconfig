@@ -1,0 +1,50 @@
+[user]
+	name = Inam
+	email = mfihassan99@gmail.com
+
+[includeIf "gitdir:~/work/"]
+	path = ~/.gitconfig-work
+
+[core]
+	editor = code --wait
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+
+[init]
+	defaultBranch = main
+
+[pull]
+	# rebase = true
+	
+[push]
+	default = current
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+
+[rebase]
+	# autoStash = true
+	
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	lg = log --oneline --graph --decorate --all
+	last = log -1 HEAD --stat
+	undo = reset HEAD~1 --mixed
+	unstage = reset HEAD --
+	aliases = config --get-regexp alias
+	fpush = push --force-with-lease
+
+[color]
+	ui = auto
+
+[credential]
+	helper = store
