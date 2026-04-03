@@ -110,3 +110,10 @@ if [ -d "$FNM_PATH" ]; then
 	export PATH="$FNM_PATH:$PATH"
 	eval "$(fnm env --use-on-cd --shell zsh)"
 fi
+
+# bun completions
+[ -s "/home/inam/.bun/_bun" ] && source "/home/inam/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
