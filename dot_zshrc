@@ -72,6 +72,8 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
+ZSH_DISABLE_COMPFIX=true
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -138,3 +140,25 @@ export PATH="$PATH:$GOPATH/bin"
 # uv
 export PATH="$HOME/.local/bin:$PATH"
 # uv end
+#
+# JetBrains Toolbox
+export PATH="/mnt/c/Users/User/AppData/Local/JetBrains/Toolbox/scripts:$PATH"
+
+function webstorm() {
+    local wslpath_dir=$(wslpath -w "${1:-.}")
+    cmd.exe /C "cd /d C:\\ && C:\\Users\\User\\AppData\\Local\\JetBrains\\Toolbox\\scripts\\webstorm.cmd \"$wslpath_dir\"" >/dev/null 2>&1 &
+    disown
+}
+
+function pycharm() {
+    local wslpath_dir=$(wslpath -w "${1:-.}")
+    cmd.exe /C "cd /d C:\\ && C:\\Users\\User\\AppData\\Local\\JetBrains\\Toolbox\\scripts\\pycharm.cmd \"$wslpath_dir\"" >/dev/null 2>&1 &
+    disown
+}
+
+function goland() {
+    local wslpath_dir=$(wslpath -w "${1:-.}")
+    cmd.exe /C "cd /d C:\\ && C:\\Users\\User\\AppData\\Local\\JetBrains\\Toolbox\\scripts\\goland.cmd \"$wslpath_dir\"" >/dev/null 2>&1 &
+    disown
+}
+# JetBrains Toolbox end
